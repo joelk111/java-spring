@@ -1,0 +1,25 @@
+# Drum-bus augmentation v1 (plan §7.3). Ranges are uniform; lists of non-numbers are
+# choices. Every probability and range here is an ASSUMPTION (not tuned on data).
+target_mode: distribute     # distribute | mixture_only  (see kitsplit/data/augment.py)
+
+per_stem:                   # 1. per-stem pre-mix
+  gain:       {p: 1.0, gain_db: [-6, 6]}
+  pan_narrow: {p: 0.5, width: [0.3, 1.0]}
+  hpf:        {p: 0.3, cutoff_hz: [20, 150]}
+  lpf:        {p: 0.3, cutoff_hz: [8000, 20000]}
+  room:       {p: 0.3, wet_db: [-30, -15], rt60: [0.1, 0.5]}
+
+bus:                        # 2. bus chain; limiter + dither always last
+  compressor:       {p: 0.6, threshold_db: [-30, -10], ratio: [2, 6], attack_ms: [1, 30],
+                     release_ms: [50, 300], makeup_db: [0, 6], parallel_mix: [0.3, 1.0]}
+  saturation:       {p: 0.4, drive_db: [0, 18], kind: [tape, tube], wet: [0.2, 1.0]}
+  transient_shaper: {p: 0.3, attack_db: [-6, 6], sustain_db: [-6, 6]}
+  eq_tilt:          {p: 0.5, db_per_oct: [-1.5, 1.5]}
+  stereo_width:     {p: 0.5, width: [0.7, 1.3]}
+  limiter:          {p: 0.5, ceiling_dbfs: [-6, -0.3], release_ms: [20, 200]}
+  dither:           {p: 0.3, bits: [16, 20, 24]}   # 3+ numbers = discrete choice
+
+contamination:              # 3. non-drum bleed -> residual. MUST be licensed material.
+  p: 0.0                    # disabled until a licensed source_dir exists
+  level_db: [-36, -18]      # relative to the drum mix RMS
+  source_dir: null

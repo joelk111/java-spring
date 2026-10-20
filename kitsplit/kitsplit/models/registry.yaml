@@ -1,0 +1,68 @@
+# Model registry: name -> (kind, arch, config, weights url, sha256, license).
+# Rules (plan §0.5, U-REG-1):
+#   * every entry has `sha256` and `license` keys (sha256 is null only for oracles);
+#   * anything without a stated license is eval-only -> shippable: false.
+schema: kitsplit.registry.v1
+models:
+  - name: oracle-identity
+    kind: oracle
+    arch: identity
+    description: "TEST ONLY. Puts the whole input into residual."
+    license: "n/a (no weights)"
+    shippable: false
+    sha256: null
+
+  - name: oracle-irm
+    kind: oracle
+    arch: ideal-ratio-mask
+    description: "TEST ONLY. Ideal ratio mask from the TRUE stems; needs references."
+    license: "n/a (no weights)"
+    shippable: false
+    sha256: null
+
+  - name: kitsplit-v1
+    kind: kitsplit
+    arch: mdx23c
+    description: "The shipped model. NOT TRAINED YET - no weights published."
+    license: "TBD"
+    shippable: false
+    sha256: null
+    weights: null
+
+  - name: b1-drumsep-mdx23c-6stem
+    aliases: [B1]
+    kind: msst
+    arch: mdx23c
+    description: "Baseline B1: aufr33/jarredou MDX23C DrumSep 6-stem (openmirlab mirror)."
+    license: "Unknown - none published by the authors (mdxnet-infer: 'treat as non-commercial-safe only pending author confirmation')"
+    shippable: false
+    sample_rate: 44100
+    native_stems: 6
+    stem_map: {kick: kick, snare: snare, toms: toms, hh: hh, ride: ride, crash: crash}
+    sha256: d2a4aa53eb584d21eead358a4e66d1882ad182911be018f052b5da73be9096d0
+    sha256_source: "openmirlab/mdxnet-infer src/mdxnet_infer/config/checkpoints.toml @ cb4779e"
+    weights:
+      url: https://github.com/openmirlab/mdxnet-infer/releases/download/weights-drumsep-v1/aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.ckpt
+      filename: aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.ckpt
+    config:
+      url: https://github.com/openmirlab/mdxnet-infer/releases/download/weights-drumsep-v1/aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.yaml
+      filename: aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.yaml
+      sha256: 17d1649a227f841165bdb4c11a42082898192a1ea3ceab7e7e0b9293d6589dd6
+
+  - name: b2-drumsep-hdemucs-4stem
+    aliases: [B2]
+    kind: demucs
+    arch: hdemucs
+    description: "Baseline B2: inagoy/drumsep HDemucs 4-stem (bombo=kick, redoblante=snare, platillos=cymbals, toms)."
+    license: "Not stated for the weights (repo code is MIT; weights are hosted on Google Drive outside the repo)"
+    shippable: false
+    sample_rate: 44100
+    native_stems: 4
+    # B2 has a single 'cymbals' output; it is placed in the hh slot, so only the
+    # 4- and 5-stem groupings are meaningful for B2.
+    stem_map: {bombo: kick, redoblante: snare, toms: toms, platillos: hh}  # model outputs are Spanish names
+    sha256: aefaa8543c9b9c75e22f5f32b53ab86dfe416457849af1383ff1aef83401423f
+    sha256_source: "trust-on-first-use: computed by kitsplit on 2026-10-19 from the Google Drive download; no upstream digest exists"
+    weights:
+      url: https://drive.usercontent.google.com/download?id=1-Dm666ScPkg8Gt2-lK3Ua0xOudWHZBGC&export=download&confirm=t
+      filename: 49469ca8.th

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kitsplit"
+version = "0.1.0.dev0"
+description = "Stereo drum bus -> per-drum stems (AI separation)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "soundfile>=0.12",
+  "torch>=2.1",
+  "typer>=0.9",
+  "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+onnx = ["onnx>=1.15", "onnxruntime>=1.17"]
+# Needed to import the pinned MSST submodule (training, metrics, baselines).
+# The PyPI `msst` wheel is NOT used: msst 0.1.0 pins torch<2.12.
+msst = ["ml-collections", "omegaconf", "librosa", "tqdm", "torchaudio", "audiomentations", "pedalboard", "einops",
+        "matplotlib", "pandas", "requests",
+        "torch-log-wmse>=0.3.1,<1.0"]  # 1.0 removed the audio_length arg pinned MSST uses
+# MSST train.py imports these unconditionally
+train = ["wandb", "auraloss", "torch-l1-snr>=0.1.2"]
+baselines = ["demucs==4.1.0"]  # B2 loader
+data = ["mido>=1.3"]  # GMD MIDI onsets
+dev = ["pytest>=7"]
+
+[project.scripts]
+kitsplit = "kitsplit.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["kitsplit*"]
+
+[tool.setuptools.package-data]
+kitsplit = ["data/*.yaml", "models/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "plumbing: uses oracle/identity models; proves the pipeline, says NOTHING about separation quality",
+  "quality: real-data quality gates; needs --real-data, never in default CI",
+  "network: needs internet (downloads); skipped unless KITSPLIT_NETWORK_TESTS=1",
+]

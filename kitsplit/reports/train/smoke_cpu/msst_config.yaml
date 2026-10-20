@@ -1,0 +1,152 @@
+audio:
+  chunk_size: 130560
+  dim_f: 1024
+  dim_t: 256
+  hop_length: 512
+  min_mean_abs: 0.001
+  n_fft: 2048
+  num_channels: 2
+  sample_rate: 44100
+model:
+  act: gelu
+  bottleneck_factor: 4
+  growth: 8
+  norm: InstanceNorm
+  num_blocks_per_scale: 1
+  num_channels: 16
+  num_scales: 2
+  num_subbands: 4
+  scale:
+  - 2
+  - 2
+training:
+  batch_size: 2
+  coarse_loss_clip: true
+  ema_momentum: 0.999
+  grad_clip: 0
+  gradient_accumulation_steps: 1
+  lr: 9.0e-05
+  num_epochs: 1
+  num_steps: 2
+  optimizer: adam
+  other_fix: false
+  patience: 30
+  q: 0.95
+  reduce_factor: 0.95
+  target_instrument: null
+  use_amp: false
+  instruments:
+  - kick
+  - snare
+  - toms
+  - hh
+  - ride
+  - crash
+  - residual
+augmentations:
+  enable: false
+inference:
+  batch_size: 1
+  dim_t: 256
+  num_overlap: 4
+kitsplit_augment:
+  target_mode: distribute
+  per_stem:
+    gain:
+      p: 1.0
+      gain_db:
+      - -6
+      - 6
+    pan_narrow:
+      p: 0.5
+      width:
+      - 0.3
+      - 1.0
+    hpf:
+      p: 0.3
+      cutoff_hz:
+      - 20
+      - 150
+    lpf:
+      p: 0.3
+      cutoff_hz:
+      - 8000
+      - 20000
+    room:
+      p: 0.3
+      wet_db:
+      - -30
+      - -15
+      rt60:
+      - 0.1
+      - 0.5
+  bus:
+    compressor:
+      p: 0.6
+      threshold_db:
+      - -30
+      - -10
+      ratio:
+      - 2
+      - 6
+      attack_ms:
+      - 1
+      - 30
+      release_ms:
+      - 50
+      - 300
+      makeup_db:
+      - 0
+      - 6
+      parallel_mix:
+      - 0.3
+      - 1.0
+    saturation:
+      p: 0.4
+      drive_db:
+      - 0
+      - 18
+      kind:
+      - tape
+      - tube
+      wet:
+      - 0.2
+      - 1.0
+    transient_shaper:
+      p: 0.3
+      attack_db:
+      - -6
+      - 6
+      sustain_db:
+      - -6
+      - 6
+    eq_tilt:
+      p: 0.5
+      db_per_oct:
+      - -1.5
+      - 1.5
+    stereo_width:
+      p: 0.5
+      width:
+      - 0.7
+      - 1.3
+    limiter:
+      p: 0.5
+      ceiling_dbfs:
+      - -6
+      - -0.3
+      release_ms:
+      - 20
+      - 200
+    dither:
+      p: 0.3
+      bits:
+      - 16
+      - 20
+      - 24
+  contamination:
+    p: 0.0
+    level_db:
+    - -36
+    - -18
+    source_dir: null

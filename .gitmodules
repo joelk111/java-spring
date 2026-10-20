@@ -1,0 +1,18 @@
+[submodule "kitsplit/third_party/Music-Source-Separation-Training"]
+	path = kitsplit/third_party/Music-Source-Separation-Training
+	url = https://github.com/ZFTurbo/Music-Source-Separation-Training
+[submodule "kitsplit/third_party/drumsep"]
+	path = kitsplit/third_party/drumsep
+	url = https://github.com/inagoy/drumsep
+[submodule "kitsplit/third_party/mdxnet-infer"]
+	path = kitsplit/third_party/mdxnet-infer
+	url = https://github.com/openmirlab/mdxnet-infer
+[submodule "kitsplit/third_party/inverse-drum-machine"]
+	path = kitsplit/third_party/inverse-drum-machine
+	url = https://github.com/bernardo-torres/inverse-drum-machine
+[submodule "kitsplit/third_party/larsnet"]
+	path = kitsplit/third_party/larsnet
+	url = https://github.com/polimi-ispl/larsnet
+[submodule "kitsplit/third_party/stems.cpp"]
+	path = kitsplit/third_party/stems.cpp
+	url = https://github.com/betweentwomidnights/stems.cpp

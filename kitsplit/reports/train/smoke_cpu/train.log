@@ -1,0 +1,65 @@
+Dataset type: 1 Processes to use: 2 
+Collecting metadata for ['/home/user/java-spring/kitsplit/tests/fixtures/type1_mini']
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 17924.38it/s]
+Found tracks in dataset: 2
+CUDA is not available. Running on CPU.
+Initializing EMA with decay: 0.999
+Instruments: ['kick', 'snare', 'toms', 'hh', 'ride', 'crash', 'residual']
+Metrics for training: ['sdr', 'bleedless', 'fullness', 'l1_freq']. Metric for scheduler: sdr
+Patience: 30 Reduce factor: 0.95
+Batch size: 2 Grad accum steps: 1 Num gpus: 1 Effective batch size: 2
+Dataset type: 1
+Optimizer: adam
+Train for: 1 epochs
+Model: TFC_TDF_net
+Total parameters: 156,304 (0.16M)
+Trainable parameters: 156,304 (0.16M)
+Model size: 0.60 MB
+Number of layers: 56
+Train epoch: 0 Learning rate: 9e-05
+  0%|          | 0/2 [00:00<?, ?it/s]  0%|          | 0/2 [00:21<?, ?it/s, loss=1.95, avg_loss=1.95] 50%|█████     | 1/2 [00:21<00:21, 21.43s/it, loss=1.95, avg_loss=1.95] 50%|█████     | 1/2 [00:37<00:21, 21.43s/it, loss=1.83, avg_loss=1.89]100%|██████████| 2/2 [00:37<00:00, 18.19s/it, loss=1.83, avg_loss=1.89]100%|██████████| 2/2 [00:37<00:00, 18.68s/it, loss=1.83, avg_loss=1.89]
+Training loss: 0.018920663744211197
+  0%|          | 0/2 [00:00<?, ?it/s]  0%|          | 0/2 [00:09<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8]  0%|          | 0/2 [00:09<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67]  0%|          | 0/2 [00:09<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12]  0%|          | 0/2 [00:10<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12, sdr_hh=-1.91, k_sdr_hh=72.5, l1_freq_hh=28.8, bleedless_hh=2.57, fullness_hh=6.74]  0%|          | 0/2 [00:10<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12, sdr_hh=-1.91, k_sdr_hh=72.5, l1_freq_hh=28.8, bleedless_hh=2.57, fullness_hh=6.74, sdr_ride=-0.557, k_sdr_ride=77.1, l1_freq_ride=29.2, bleedless_ride=5.97, fullness_ride=5.42]  0%|          | 0/2 [00:10<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12, sdr_hh=-1.91, k_sdr_hh=72.5, l1_freq_hh=28.8, bleedless_hh=2.57, fullness_hh=6.74, sdr_ride=-0.557, k_sdr_ride=77.1, l1_freq_ride=29.2, bleedless_ride=5.97, fullness_ride=5.42, sdr_crash=-0.647, k_sdr_crash=76.8, l1_freq_crash=18.7, bleedless_crash=3.32, fullness_crash=5.24]  0%|          | 0/2 [00:10<?, ?it/s, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12, sdr_hh=-1.91, k_sdr_hh=72.5, l1_freq_hh=28.8, bleedless_hh=2.57, fullness_hh=6.74, sdr_ride=-0.557, k_sdr_ride=77.1, l1_freq_ride=29.2, bleedless_ride=5.97, fullness_ride=5.42, sdr_crash=-0.647, k_sdr_crash=76.8, l1_freq_crash=18.7, bleedless_crash=3.32, fullness_crash=5.24, sdr_residual=-2.72, k_sdr_residual=69.4, l1_freq_residual=40.7, bleedless_residual=3.82, fullness_residual=5.64] 50%|█████     | 1/2 [00:10<00:10, 10.82s/it, sdr_kick=-0.0844, k_sdr_kick=78.5, l1_freq_kick=36.6, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.15, k_sdr_snare=71.6, l1_freq_snare=36, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0944, k_sdr_toms=79, l1_freq_toms=32.1, bleedless_toms=8.93, fullness_toms=12, sdr_hh=-1.91, k_sdr_hh=72.5, l1_freq_hh=28.8, bleedless_hh=2.57, fullness_hh=6.74, sdr_ride=-0.557, k_sdr_ride=77.1, l1_freq_ride=29.2, bleedless_ride=5.97, fullness_ride=5.42, sdr_crash=-0.647, k_sdr_crash=76.8, l1_freq_crash=18.7, bleedless_crash=3.32, fullness_crash=5.24, sdr_residual=-2.72, k_sdr_residual=69.4, l1_freq_residual=40.7, bleedless_residual=3.82, fullness_residual=5.64] 50%|█████     | 1/2 [00:17<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               50%|█████     | 1/2 [00:17<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67] 50%|█████     | 1/2 [00:18<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8] 50%|█████     | 1/2 [00:18<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68] 50%|█████     | 1/2 [00:19<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68, sdr_ride=-0.516, k_sdr_ride=77.2, l1_freq_ride=32.9, bleedless_ride=5.96, fullness_ride=5.44] 50%|█████     | 1/2 [00:19<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68, sdr_ride=-0.516, k_sdr_ride=77.2, l1_freq_ride=32.9, bleedless_ride=5.96, fullness_ride=5.44, sdr_crash=-0.597, k_sdr_crash=76.9, l1_freq_crash=21.5, bleedless_crash=3.23, fullness_crash=5.26] 50%|█████     | 1/2 [00:20<00:10, 10.82s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68, sdr_ride=-0.516, k_sdr_ride=77.2, l1_freq_ride=32.9, bleedless_ride=5.96, fullness_ride=5.44, sdr_crash=-0.597, k_sdr_crash=76.9, l1_freq_crash=21.5, bleedless_crash=3.23, fullness_crash=5.26, sdr_residual=-2.62, k_sdr_residual=69.8, l1_freq_residual=45, bleedless_residual=3.82, fullness_residual=5.58]100%|██████████| 2/2 [00:20<00:00,  9.89s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68, sdr_ride=-0.516, k_sdr_ride=77.2, l1_freq_ride=32.9, bleedless_ride=5.96, fullness_ride=5.44, sdr_crash=-0.597, k_sdr_crash=76.9, l1_freq_crash=21.5, bleedless_crash=3.23, fullness_crash=5.26, sdr_residual=-2.62, k_sdr_residual=69.8, l1_freq_residual=45, bleedless_residual=3.82, fullness_residual=5.58]100%|██████████| 2/2 [00:20<00:00, 10.03s/it, sdr_kick=-0.0519, k_sdr_kick=78.6, l1_freq_kick=40.9, bleedless_kick=7.11, fullness_kick=13.8, sdr_snare=-2.04, k_sdr_snare=72, l1_freq_snare=40.1, bleedless_snare=5.1, fullness_snare=5.67, sdr_toms=0.0808, k_sdr_toms=79, l1_freq_toms=35.9, bleedless_toms=8.97, fullness_toms=11.8, sdr_hh=-1.85, k_sdr_hh=72.7, l1_freq_hh=32.4, bleedless_hh=2.61, fullness_hh=6.68, sdr_ride=-0.516, k_sdr_ride=77.2, l1_freq_ride=32.9, bleedless_ride=5.96, fullness_ride=5.44, sdr_crash=-0.597, k_sdr_crash=76.9, l1_freq_crash=21.5, bleedless_crash=3.23, fullness_crash=5.26, sdr_residual=-2.62, k_sdr_residual=69.8, l1_freq_residual=45, bleedless_residual=3.82, fullness_residual=5.58]
+Num overlap: 4
+Instr kick sdr: -0.0681 (Std: 0.0163)
+Instr kick bleedless: 7.1094 (Std: 0.0029)
+Instr kick fullness: 13.8128 (Std: 0.0101)
+Instr kick l1_freq: 38.7584 (Std: 2.1476)
+Instr kick k_sdr: 78.5569 (Std: 0.0489)
+Instr snare sdr: -2.0945 (Std: 0.0577)
+Instr snare bleedless: 5.0978 (Std: 0.0003)
+Instr snare fullness: 5.6718 (Std: 0.0021)
+Instr snare l1_freq: 38.0672 (Std: 2.0354)
+Instr snare k_sdr: 71.8223 (Std: 0.2128)
+Instr toms sdr: 0.0876 (Std: 0.0068)
+Instr toms bleedless: 8.9515 (Std: 0.0180)
+Instr toms fullness: 11.9107 (Std: 0.0821)
+Instr toms l1_freq: 33.9969 (Std: 1.9398)
+Instr toms k_sdr: 79.0215 (Std: 0.0202)
+Instr hh sdr: -1.8818 (Std: 0.0314)
+Instr hh bleedless: 2.5922 (Std: 0.0199)
+Instr hh fullness: 6.7108 (Std: 0.0280)
+Instr hh l1_freq: 30.6395 (Std: 1.7907)
+Instr hh k_sdr: 72.5983 (Std: 0.1131)
+Instr ride sdr: -0.5366 (Std: 0.0203)
+Instr ride bleedless: 5.9666 (Std: 0.0071)
+Instr ride fullness: 5.4310 (Std: 0.0110)
+Instr ride l1_freq: 31.0252 (Std: 1.8341)
+Instr ride k_sdr: 77.1183 (Std: 0.0636)
+Instr crash sdr: -0.6220 (Std: 0.0251)
+Instr crash bleedless: 3.2730 (Std: 0.0468)
+Instr crash fullness: 5.2503 (Std: 0.0059)
+Instr crash l1_freq: 20.1135 (Std: 1.4086)
+Instr crash k_sdr: 76.8490 (Std: 0.0794)
+Instr residual sdr: -2.6701 (Std: 0.0482)
+Instr residual bleedless: 3.8203 (Std: 0.0023)
+Instr residual fullness: 5.6108 (Std: 0.0312)
+Instr residual l1_freq: 42.8654 (Std: 2.1224)
+Instr residual k_sdr: 69.6278 (Std: 0.1902)
+Metric avg sdr        : -1.1122
+Metric avg bleedless  : 5.2587
+Metric avg fullness   : 7.7712
+Metric avg l1_freq    : 33.6380
+Metric avg k_sdr      : 75.0849
+Elapsed time: 20.08 sec
+Store weights: /tmp/claude-0/-home-user-java-spring/d62afe9b-28ff-5204-acd0-acefc032e095/scratchpad/smoke_train/model_mdx23c_ep_0_sdr_-1.1122.ckpt

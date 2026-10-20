@@ -1,0 +1,4 @@
+# ASSUMPTION: values from plan §5; not tuned on real data yet.
+chunk_sec: 6.0
+overlap: 0.5
+shifts: 1

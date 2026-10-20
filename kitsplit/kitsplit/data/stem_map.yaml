@@ -1,0 +1,44 @@
+# StemGMD (9 classes, folder names as found in the Zenodo archives) -> kitsplit 7 stems.
+# Verified against the StemGMD_eval_session.zip listing (Zenodo 7882857) on 2026-10-19.
+#
+# Correction to plan §4.1: there is NO pedal hi-hat class in StemGMD. The Groove MIDI
+# reduction (Gillick et al. 2019, App. B) folds pedal (MIDI 44) into closed hi-hat.
+# Consequence: every StemGMD class maps to a named stem, so `residual` is always
+# silent in StemGMD-derived data. Residual training signal must come from the
+# contamination augmentation (configs/augment) or real multitrack data.
+stemgmd_classes: [kick, snare, hi_tom, mid_tom, low_tom, hihat_closed, hihat_open, crash_left, ride]
+map:
+  kick: [kick]
+  snare: [snare]
+  toms: [hi_tom, mid_tom, low_tom]
+  hh: [hihat_closed, hihat_open]
+  ride: [ride]
+  crash: [crash_left]
+  residual: []
+
+# GMD / Roland TD-11 MIDI pitch -> StemGMD class ("Paper Mapping" column of the table
+# at https://magenta.tensorflow.org/datasets/groove, i.e. Gillick et al. 2019 App. B,
+# which StemGMD used). All 22 rows checked against that page on 2026-10-19.
+midi_to_class:
+  36: kick
+  37: snare
+  38: snare
+  40: snare
+  48: hi_tom
+  50: hi_tom
+  45: mid_tom
+  47: mid_tom
+  43: low_tom
+  58: low_tom
+  46: hihat_open
+  26: hihat_open
+  42: hihat_closed
+  22: hihat_closed
+  44: hihat_closed
+  49: crash_left
+  55: crash_left
+  57: crash_left
+  52: crash_left
+  51: ride
+  59: ride
+  53: ride

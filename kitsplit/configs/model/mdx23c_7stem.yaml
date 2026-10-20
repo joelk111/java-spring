@@ -1,0 +1,53 @@
+# Phase 1 (cheap) model: MDX23C, 7 stems. kitsplit format; `kitsplit train`
+# (train/msst_adapter.py) turns it into an MSST YAML. `instruments` is NOT listed
+# here: it always comes from kitsplit.io.stems.STEMS7.
+#
+# Architecture/STFT values copied from the aufr33/jarredou DrumSep MDX23C config
+# (B1), which is the only public drum-specific MDX23C config we found.
+arch: mdx23c            # MSST model_type
+
+audio:
+  chunk_size: 130560    # = hop_length * (dim_t - 1)
+  dim_f: 1024
+  dim_t: 256
+  hop_length: 512
+  n_fft: 2048
+  window: hann
+  num_channels: 2
+  sample_rate: 44100    # StemGMD is 44.1 kHz
+  min_mean_abs: 0.001
+
+model:
+  act: gelu
+  bottleneck_factor: 4
+  growth: 128
+  norm: InstanceNorm
+  num_blocks_per_scale: 2
+  num_channels: 128
+  num_scales: 5
+  num_subbands: 4
+  scale: [2, 2]
+
+training:
+  # ASSUMPTION: batch_size 12 fits 48 GB (A4); lower it and raise
+  # gradient_accumulation_steps on smaller GPUs (see configs/README.md).
+  batch_size: 12
+  gradient_accumulation_steps: 1
+  grad_clip: 0
+  lr: 9.0e-05
+  patience: 30
+  reduce_factor: 0.95
+  target_instrument: null
+  num_epochs: 1000
+  num_steps: 1268
+  q: 0.95
+  coarse_loss_clip: true
+  ema_momentum: 0.999
+  optimizer: adam
+  other_fix: false
+  use_amp: true
+
+inference:
+  batch_size: 1
+  dim_t: 256
+  num_overlap: 4
